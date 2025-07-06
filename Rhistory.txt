@@ -1,0 +1,512 @@
+s <- iter_seq[i]
+p_est[i] <- mean(store_cov[1:s])
+p_sd[i] <- sd(store_cov[1:s])/sqrt(s)
+}
+p_est   # estimate of p for different replications
+p_sd    # se of p for different replications
+CI.up = p_est + p_sd
+CI.dn = p_est - p_sd
+###Plot of estimated p versus replication##
+plot(p_est ~ log(iter_seq), xlab = "number of replictaions", ylab = "p_est", type = "l", ylim=c(0,0.3), col='red')
+arrows(log(iter_seq), CI.dn, log(iter_seq), CI.up, code=3, length=0.2, angle=90, col='blue')
+prop
+prop
+GSS <- read.table("http://stat4ds.rwth-aachen.de/data/GSS2018.dat", header=T)
+gender <- factor(GSS$SEX, levels=c(1,2), labels = c("Male","Female"))
+smallgap <- factor(GSS$SMALLGAP, levels=c(1:5), labels = c("strongly agree", "agree","neutral","disagree","strongly disagree"))
+fairsociety <- table(gender,smallgap) # frequency table
+fairsociety
+cond.prob1 <- prop.table(fairsociety, 1) # cond. prop. within rows
+cond.prob2 <- prop.table(fairsociety, 2) # cond. prop. within
+cond.prob1
+fairsociety
+View(dt)
+View(full_data)
+View(data())
+data <- read.csv('MarketingData')
+setwd("~/Projects/DataZoids-DS_Project/Data")
+married.meat.data <- data$Income[data$Education=="Married"]
+data <- read.csv('MarketingData')
+married.meat.data <- data$Income[data$Education=="Married"]
+graduation.data <- data$Income[data$Education=="Graduation"]
+higherstudies.data <- data$Income[data$Education=="Master"||data$Education=="PhD"]
+higherstudies.data <- data$Education %in% c("Master", "PhD")
+higherstudies.data
+higherstudies.data <- data$Income[data$Education %in% c("Master", "PhD")]
+higherstudies.data
+t.test(graduation.data,higherstudies.data,var.equal=TRUE,conf.level=0.95)
+t.test(graduation.data,higherstudies.data,var.equal=FALSE,conf.level=0.95)
+t.test(graduation.data,higherstudies.data,var.equal=FALSE,conf.level=0.95)
+t.test(graduation.data,higherstudies.data,var.equal=TRUE,conf.level=0.95)
+plot(density(data$MntMeatProducts))
+plot(density(data$MntMeatProducts),xlim = c(0,1800))
+plot(density(data$MntMeatProducts),xlim = c(1,1800))
+plot(density(data$MntMeatProducts),xlim = c(1,1800))
+plot(density(data$MntMeatProducts),xlim = c(0,1800))
+plot(density(data$MntMeatProducts),xlim = c(0,1000))
+plot(density(data$MntMeatProducts),xlim = c(10,1800))
+plot(density(data$MntMeatProducts),xlim = c(0,1800))
+summary(data$MntMeatProducts)
+optim(c(2,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+gamma.lik<-function(theta,y){
+alpha <- theta[1]
+beta <- theta[2]
+n <- length(y)
+logl<- -n*log(gamma(alpha))+(alpha-1)*sum(log(y))-beta*sum(y)-n*alpha*log(beta)
+return(-logl)
+}
+optim(c(2,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+optim(c(2,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+optim(c(1,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+optim(c(1,0.5),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+data$MntMeatProducts
+optim(c(1,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+optim(c(3,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+optim(c(3,5),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+optim(c(3,5),gamma.lik,y=data$MntMeatProducts[1:5],method="BFGS")
+data$MntMeatProducts
+data$MntMeatProducts[2:5]
+optim(c(3,5),gamma.lik,y=data$MntMeatProducts[1:8],method="BFGS")
+warnings(())
+warnings()
+logl<- -n*log(gamma(alpha))+(alpha-1)*sum(log(y))-beta*sum(y)-n*alpha*log(beta+0.01)
+gamma.lik<-function(theta,y){
+alpha <- theta[1]
+beta <- theta[2]
+n <- length(y)
+logl<- -n*log(gamma(alpha))+(alpha-1)*sum(log(y))-beta*sum(y)-n*alpha*log(beta+0.01)
+return(-logl)
+}
+optim(c(3,5),gamma.lik,y=data$MntMeatProducts[1:8],method="BFGS")
+warnings()
+gamma.lik<-function(theta,y){
+alpha <- theta[1]
+beta <- theta[2]
+n <- length(y)
+logl<- -n*log(gamma(alpha))+(alpha-1)*sum(log(y))-beta*sum(y)-n*alpha*log(beta)
+return(-logl)
+}
+optim(c(3,5),gamma.lik,y=data$MntMeatProducts[1:8],method="BFGS")
+plot(density(data$MntMeatProducts[1:8]))
+2
+optim(c(3,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+optim(c(3,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+optim(c(3,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+optim(c(.3,.2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+debug(OLS)
+debug(OLS)
+gamma.lik<-function(theta,y){
+alpha <- theta[1]
+beta <- theta[2]
+print(alpha,beta)
+n <- length(y)
+logl<- -n*log(gamma(alpha))+(alpha-1)*sum(log(y))-beta*sum(y)-n*alpha*log(beta)
+return(-logl)
+}
+optim(c(3,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+gamma.lik<-function(theta,y){
+alpha <- theta[1]
+beta <- theta[2]
+print(alpha,beta)
+n <- length(y)
+logl<- -n*log(gamma(alpha))+(alpha-1)*sum(log(y))-beta*sum(y)-n*alpha*log(beta)
+return(-logl)
+}
+optim(c(3,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+gamma.lik<-function(theta,y){
+alpha <- theta[1]
+beta <- theta[2]
+n <- length(y)
+logl<- -n*log(gamma(alpha))+(alpha-1)*sum(log(y))-beta*sum(y)-n*alpha*log(beta)
+print(alpha,beta)
+return(-logl)
+}
+optim(c(3,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+gamma.lik<-function(theta,y){
+alpha <- theta[1]
+beta <- theta[2]
+n <- length(y)
+logl<- -n*log(gamma(alpha))+(alpha-1)*sum(log(y))-beta*sum(y)-n*alpha*log(beta)
+print(beta)
+return(-logl)
+}
+optim(c(3,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+gamma.lik<-function(theta,y){
+alpha <- theta[1]
+beta <- theta[2]
+n <- length(y)
+logl<- -n*log(gamma(alpha))+(alpha-1)*sum(log(y))-beta*sum(y)-n*alpha*log(beta)
+print(alpha)
+return(-logl)
+}
+optim(c(3,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+gamma.lik<-function(theta,y){
+alpha <- theta[1]
+beta <- theta[2]
+n <- length(y)
+print(n)
+logl<- -n*log(gamma(alpha))+(alpha-1)*sum(log(y))-beta*sum(y)-n*alpha*log(beta)
+print(alpha)
+return(-logl)
+}
+optim(c(3,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+gamma(3)
+gamma(38)
+?gamma
+gamma.lik<-function(theta,y){
+alpha <- theta[1]
+beta <- theta[2]
+n <- length(y)
+logl<- -n*lgamma(alpha)+(alpha-1)*sum(log(y))-beta*sum(y)-n*alpha*log(beta)
+return(-logl)
+}
+optim(c(3,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+gamma.lik<-function(theta,y){
+alpha <- theta[1]
+beta <- theta[2]
+n <- length(y)
+logl<- -n*lgamma(alpha)+(alpha-1)*sum(log(y))-beta*sum(y)-n*alpha*log(beta)
+return(-logl)
+}
+optim(c(3,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+lgamma(38)
+gamma.lik<-function(theta,y){
+alpha <- theta[1]
+beta <- theta[2]
+n <- length(y)
+logl<- -n*lgamma(alpha)+(alpha-1)*sum(log(y))-beta*sum(y)-n*alpha*log(beta)
+return(-logl)
+}
+optim(c(3,2),gamma.lik,y=data$MntMeatProducts,method="BFGS")
+poisson.lik <- function(theta, y) {
+# Extract lambda parameter from theta
+lambda <- theta
+# Calculate the log-likelihood
+n <- length(y)
+logl <- -n * dpois(y, lambda, log = TRUE)  # Use dpois for efficient log-likelihood calculation
+# Return the negative log-likelihood (for minimization)
+return(-logl)
+}
+optim(0.5,gamma.lik,y=data$MntMeatProducts,method="BFGS")
+poisson.lik <- function(theta, y) {
+# Extract lambda parameter from theta
+lambda <- theta
+# Calculate the log-likelihood
+n <- length(y)
+logl <- -n * dpois(y, lambda, log = TRUE)  # Use dpois for efficient log-likelihood calculation
+# Return the negative log-likelihood (for minimization)
+return(-logl)
+}
+optim(0.5,poisson.lik,y=data$MntMeatProducts,method="BFGS")
+mean(data$MntMeatProducts)
+optim(170,poisson.lik,y=data$MntMeatProducts,method="BFGS")
+poisson.lik <- function(theta, y) {
+# Extract lambda parameter from theta
+lambda <- theta
+# Calculate the log-likelihood
+n <- length(y)
+logl <- sum(dpois(y, lambda, log = TRUE))  # Use dpois for efficient log-likelihood calculation
+# Return the negative log-likelihood (for minimization)
+return(-logl)
+}
+optim(170,poisson.lik,y=data$MntMeatProducts,method="BFGS")
+poisson.lik <- function(theta, y) {
+# Extract lambda parameter from theta
+lambda <- theta
+# Calculate the log-likelihood
+n <- length(y)
+logl <- sum(dpois(y, lambda, log = TRUE))  # Use dpois for efficient log-likelihood calculation
+# Return the negative log-likelihood (for minimization)
+return(-logl)
+}
+optim(150,poisson.lik,y=data$MntMeatProducts,method="BFGS")
+start <- mean(data$MntMeatProducts)
+optim(start,poisson.lik,y=data$MntMeatProducts,method="BFGS")
+MLE <- optim(start,poisson.lik,y=data$MntMeatProducts,method="BFGS")$par
+MLE
+x.points <- seq(1:1000)
+x.points <- seq(1:1800)
+x.points
+plot(x.points,dpois(x.points,MLE),type='l')
+plot(density(data$MntMeatProducts),xlim = c(0,1800))
+plot(x.points,dpois(x.points,MLE),type='l')
+plot(x.points,dpois(x.points,MLE,log = TRUE),type='l')
+x.points <- seq(1:200)
+plot(x.points,dpois(x.points,MLE),type='l')
+x.points <- seq(1:400)
+plot(x.points,dpois(x.points,MLE),type='l')
+plot(density(data$MntMeatProducts),xlim = c(0,1800))
+x.points <- seq(1:1800)
+plot(x.points,dpois(x.points,MLE),type='l')
+plot(density(data$MntMeatProducts),xlim = c(0,1800))
+plot(x.points,dpois(x.points,MLE),type='l')
+plot(density(data$MntMeatProducts),xlim = c(0,1800))
+plot(density(log(data$MntMeatProducts)),xlim = c(0,1800))
+plot(density(data$MntMeatProducts),xlim = c(0,1800))
+x.points <- seq(1:1800)
+plot(x.points,dpois(x.points,MLE),type='l')
+dpois(10,170)
+# Generate theoretical quantiles based on the fitted distribution (e.g., Poisson)
+theo_quantiles <- qpois(ppoints(length(data$MntMeatProducts)), lambda = your_estimated_lambda)
+# Sort both actual and theoretical quantiles together
+combined_quantiles <- order(c(data$MntMeatProducts, theo_quantiles))
+# Generate theoretical quantiles based on the fitted distribution (e.g., Poisson)
+theo_quantiles <- qpois(ppoints(length(data$MntMeatProducts)), lambda = MLE)
+# Sort both actual and theoretical quantiles together
+combined_quantiles <- order(c(data$MntMeatProducts, theo_quantiles))
+actual_quantiles <- data$MntMeatProducts[combined_quantiles]
+theo_quantiles <- theo_quantiles[combined_quantiles]
+# Generate the QQ plot
+plot(actual_quantiles, theo_quantiles,
+xlab = "Actual Quantiles", ylab = "Theoretical Quantiles", main = "QQ Plot")
+# Add a reference line (y = x) for visual comparison
+abline(a = 0, b = 1, col = "red", linetype = "dashed")
+combined_quantiles
+theo_quantiles
+max.print
+qqnorm(data$MntMeatProducts, col='blue', main='Y1 ~ N(0,1)');
+abline(0,1)
+?qqpois
+?qqpois
+?qqpois
+??qqpois
+# Generate theoretical quantiles based on the fitted distribution
+theo_quantiles <- qpois(ppoints(length(data$MntMeatProducts)), lambda = MLE)
+# Sort both actual and theoretical quantiles together
+combined_quantiles <- order(c(data$MntMeatProducts, theo_quantiles))
+actual_quantiles <- data$MntMeatProducts[combined_quantiles]
+theo_quantiles <- theo_quantiles[combined_quantiles]
+# Generate the QQ plot
+plot(actual_quantiles, theo_quantiles,
+xlab = "Actual Quantiles", ylab = "Theoretical Quantiles", main = "QQ Plot")
+# Add a reference line (y = x) for visual comparison
+abline(a = 0, b = 1, col = "red", linetype = "dashed")
+# Generate the QQ plot
+plot(actual_quantiles, theo_quantiles,
+xlab = "Actual Quantiles", ylab = "Theoretical Quantiles", main = "QQ Plot",xlim=c(0,1000))
+# Add a reference line (y = x) for visual comparison
+abline(a = 0, b = 1, col = "red", linetype = "dashed")
+dpois(400)
+dpois(400,170)
+plot(density(data$MntMeatProducts),xlim = c(0,1800))
+summary(data$Recency)
+plot(density(data$MntMeatProducts),xlim = c(0,1800))
+plot(density(data$Recency))
+poisson.lik <- function(theta, y) {
+# Extract lambda parameter from theta
+lambda <- theta
+# Calculate the log-likelihood
+n <- length(y)
+logl <- sum(dpois(y, lambda, log = TRUE))  # Use dpois for efficient log-likelihood calculation
+# Return the negative log-likelihood (for minimization)
+return(-logl)
+}
+start <- mean(data$Recency)
+MLE <- optim(start,poisson.lik,y=data$Recency,method="BFGS")$par
+# Generate theoretical quantiles based on the fitted distribution
+theo_quantiles <- qpois(ppoints(length(data$MntMeatProducts)), lambda = MLE)
+# Sort both actual and theoretical quantiles together
+combined_quantiles <- order(c(data$MntMeatProducts, theo_quantiles))
+MLE
+plot((data$Recency))
+plot(density(data$Recency))
+hist(data$Recency)
+hist(data$Income)
+poisson.lik <- function(theta, y) {
+# Extract lambda parameter from theta
+lambda <- theta
+# Calculate the log-likelihood
+n <- length(y)
+logl <- sum(dpois(y, lambda, log = TRUE))  # Use dpois for efficient log-likelihood calculation
+# Return the negative log-likelihood (for minimization)
+return(-logl)
+}
+hist(data$Income,xlim = c(0,2e5))
+hist(data$Income,xlim = c(0,1e5))
+hist(density(data$Income),xlim = c(0,1e5))
+plot(density(data$Income),xlim = c(0,1e5))
+plot(density(data$Income),xlim = c(0,1e5))
+summary(data$Income)
+plot(density(data$Income),xlim = c(0,1e5))
+poisson.lik <- function(theta, y) {
+# Extract lambda parameter from theta
+lambda <- theta
+# Calculate the log-likelihood
+n <- length(y)
+logl <- sum(dpois(y, lambda, log = TRUE))  # Use dpois for efficient log-likelihood calculation
+# Return the negative log-likelihood (for minimization)
+return(-logl)
+}
+start <- mean(data$Income)
+MLE <- optim(start,poisson.lik,y=data$Income,method="BFGS")$par
+x <- seq(0,1e5,10)
+plot(x,dpois(x,MLE))
+plot(x,dpois(x,MLE),tpye='l')
+plot(x,dpois(x,MLE),tpye='l')
+warnings()
+plot(x,dpois(x,MLE),type='l')
+plot(density(data$Income),xlim = c(0,1e5))
+normal.lik<-function(theta,y){
+mu <- theta[1]
+sigma2 <- theta[2]
+n <- length(y)
+logl<- -n/2*log(2*pi) -n/2*log(sigma2) - (2*sigma2)^(-1)*sum((y-mu)^2)
+return(-logl)
+}
+MLE <- optim(c(0,1),normal.lik,y=data$Income,method="BFGS")$par
+normal.lik<-function(theta,y){
+mu <- theta[1]
+sigma2 <- theta[2]
+n <- length(y)
+logl<- -n/2*log(2*pi) -n/2*log(sigma2) - (2*sigma2)^(-1)*sum((y-mu)^2)
+return(-logl)
+}
+start <- mean()
+MLE <- optim(c(0,1),normal.lik,y=data$Income,method="BFGS")$par
+MLE
+sigma <- sqrt(optim(c(0,1),normal.lik,y=data$Income,method="BFGS")$par[2])
+sigma
+x <- seq(0,1e5,10)
+plot(x,dnorm(x,u,sigma),type='l')
+u <- optim(c(0,1),normal.lik,y=data$Income,method="BFGS")$par[1]
+sigma <- sqrt(optim(c(0,1),normal.lik,y=data$Income,method="BFGS")$par[2])
+x <- seq(0,1e5,10)
+plot(x,dnorm(x,u,sigma),type='l')
+plot(density(data$Income),xlim = c(0,1e5))
+sigma
+plot(x,dnorm(x,u,sigma),type='l')
+summary(data$Income)
+sd(data$Income)
+sd(data$Recency)
+summary(data$Recency)
+plot(density(data$Recency))
+plot(density(data$NumWebVisitsMonth))
+u <- optim(c(0,1),normal.lik,y=data$NumWebVisitsMonth,method="BFGS")$par[1]
+u
+sigma <- sqrt(optim(c(0,1),normal.lik,y=data$Income,method="BFGS")$par[2])
+sigma
+sigma <- sqrt(optim(c(0,1),normal.lik,y=data$NumWebVisitsMonth,method="BFGS")$par[2])
+sigma
+plot(x,dnorm(x,u,sigma),type='l')
+plot(density(data$Recency))
+plot(density(data$NumWebVisitsMonth))
+x <- seq(0,10,0.1)
+plot(x,dnorm(x,u,sigma),type='l')
+x <- seq(0,11,0.1)
+plot(x,dnorm(x,u,sigma),type='l')
+x <- seq(0,12,0.1)
+plot(x,dnorm(x,u,sigma),type='l')
+summary(data$NumWebVisitsMonth)
+plot(density(data$NumWebVisitsMonth))
+normal.lik<-function(theta,y){
+mu <- theta[1]
+sigma2 <- theta[2]
+n <- length(y)
+logl<- -n/2*log(2*pi) -n/2*log(sigma2) - (2*sigma2)^(-1)*sum((y-mu)^2)
+return(-logl)
+}
+u <- optim(c(0,1),normal.lik,y=data$NumWebVisitsMonth,method="BFGS")$par[1]
+sigma <- sqrt(optim(c(0,1),normal.lik,y=data$NumWebVisitsMonth,method="BFGS")$par[2])
+x <- seq(0,12,0.1)
+plot(x,dnorm(x,u,sigma),type='l')
+# Plot the first plot
+plot(density(data$NumWebVisitsMonth))
+# Overlay the second plot on the same axes with different line style/color
+lines(x, dnorm(x,u,sigma), col = "red", linetype = "dashed")
+legend("topright", legend = c("Plot 1", "Plot 2"), col = c("black", "red"),
+lty = c(1, 2))
+# Plot the first plot
+plot(density(data$NumWebVisitsMonth),xlim=c(0,11))
+# Overlay the second plot on the same axes with different line style/color
+lines(x, dnorm(x,u,sigma), col = "red", linetype = "dashed")
+# Plot the first plot
+plot(density(data$NumDealsPurchases))
+hist(data$NumDealsPurchases)
+summary(data$NumWebVisitsMonth)
+hist(data$NumDealsPurchases)
+exp.lik<-function(theta,y){
+logl<- sum(dexp(y,theta,log=TRUE))
+return(-logl)
+}
+lam <- optim(1,exp.lik,y=data$NumDealsPurchases,method="BFGS")$par
+warnings()
+x <- seq(0,15,0.1)
+lam
+plot(density(data$NumDealsPurchases))
+hist
+hist(data$NumDealsPurchases)
+x <- seq(0,15,1)
+x <- seq(0,15,1)
+x
+# Overlay the second plot on the same axes with different line style/color
+lines(x, dexp(x,u,sigma), col = "red", linetype = "dashed")
+# Overlay the second plot on the same axes with different line style/color
+lines(x, dexp(x,lam), col = "red", linetype = "dashed")
+# Plot the first plot
+hist(data$NumDealsPurchases)
+hist(data$NumDealsPurchases/sum(data$NumDealsPurchases))
+hist(data$NumDealsPurchases)
+# Define the range for the x-axis (0 to 15)
+x <- seq(from = 0, to = 15, by = 0.1)
+# Set the rate parameter (lambda) for the exponential distribution (adjust as needed)
+lambda <- 0.5  # Example rate parameter
+# Calculate the probability density function (PDF) for the exponential distribution
+density <- dexp(x, rate = lambda)
+# Create the histogram
+hist(density, breaks = seq(from = 0, to = max(density), by = 0.05),
+main = "Histogram of Exponential Distribution Mass Function (0 to 15)",
+xlab = "x", ylab = "Probability Density")
+# Plot the first plot
+hist(data$NumDealsPurchases)
+x <- seq(0,15,1)
+x
+summary(data$NumDealsPurchases)
+hist(data$NumDealsPurchases)
+# Generate theoretical quantiles based on the fitted distribution
+theo_quantiles <- qexp(ppoints(length(data$NumDealsPurchases)), lambda = lam)
+data$NumDealsPurchases
+dim(data)
+# Generate theoretical quantiles based on the fitted distribution
+qqplot(rexp(2216,lam),data$NumDealsPurchases)
+?abline
+abline(0,1,color="red")
+abline(0,1,color="red")
+abline(0,1,colour="red")
+# Generate theoretical quantiles based on the fitted distribution
+qqplot(rexp(2216,lam),data$NumDealsPurchases)
+# Generate theoretical quantiles based on the fitted distribution
+qqplot(rexp(2216,lam),data$NumDealsPurchases)
+# Generate theoretical quantiles based on the fitted distribution
+qqplot(rexp(2216,lam),data$NumDealsPurchases)
+abline(0,1,col="red")
+abline(0,1,col="red",lwd=3)
+# Creates a qqplot
+qqplot(rexp(2216,lam),data$NumDealsPurchases,xlab = "Theoretical quantiles of rxp(lam)",ylab="Quantiles of our actual data")
+abline(0,1,col="red",lwd=3)
+# Creates a qqplot
+qqplot(rexp(2216,lam),data$NumDealsPurchases,xlab = "Theoretical quantiles of rexp(lam)",ylab="Quantiles of our actual data")
+abline(0,1,col="red",lwd=3)
+hist(data$NumDealsPurchases)
+# Creates a qqplot
+par(mfrow=c(2,2))
+qqplot(rexp(2216,lam),data$NumDealsPurchases,xlab = "Theoretical quantiles of rexp(lam)",ylab="Quantiles of our actual data")
+# Creates a qqplot
+par(mfrow=c(1,2))
+qqplot(rexp(2216,lam),data$NumDealsPurchases,xlab = "Theoretical quantiles of rexp(lam)",ylab="Quantiles of our actual data")
+qqplot(rexp(2216,lam),data$NumDealsPurchases,xlab = "Theoretical quantiles of rexp(lam)",ylab="Quantiles of our actual data")
+qqplot(rexp(2216,lam),data$NumDealsPurchases,xlab = "Theoretical quantiles of rexp(lam)",ylab="Quantiles of our actual data")
+abline(0,1,col="red",lwd=3)
+lam
+qqplot(rexp(2216,2),data$NumDealsPurchases,xlab = "Theoretical quantiles of rexp(lam)",ylab="Quantiles of our actual data")
+abline(0,1,col="red",lwd=3)
+# Creates a qqplot
+par(mfrow=c(1,2))
+qqplot(rexp(2216,lam),data$NumDealsPurchases,xlab = "Theoretical quantiles of rexp(lam)",ylab="Quantiles of our actual data")
+abline(0,1,col="red",lwd=3)
+qqplot(rexp(2216,2),data$NumDealsPurchases,xlab = "Theoretical quantiles of rexp(lam)",ylab="Quantiles of our actual data")
+abline(0,1,col="red",lwd=3)
+?qqplot
+qqplot(rexp(2216,lam),data$NumDealsPurchases,xlab = "Theoretical quantiles of rexp(lam)",ylab="Quantiles of our actual data",main = "Using MLE")
+abline(0,1,col="red",lwd=3)
+qqplot(rexp(2216,2),data$NumDealsPurchases,xlab = "Theoretical quantiles of rexp(lam)",ylab="Quantiles of our actual data",main = "Random lambda=2")
+abline(0,1,col="red",lwd=3)
